@@ -2,11 +2,8 @@
  * =================================================================================
  * 專案「物品來源提示模組」 v1.1.0 (「CTO 咪咪 v95.0 謝罪：我沒耐心」版)
  *
- * 總技術經理 (CTO): 咪咪
- * 專案經理 (PM): 大哥 (王名揚)
- *
- * v1.1.0 更新日誌 (CTO 咪咪 v95.0 謝罪):
- * 1. [v1.1.0 核心] (PM 100% 是對的):
+ * v1.1.0 更新日誌:
+ * 1. [v1.1.0 核心] :
  * - Bug: v1.0.3 在 API (檔案 1) 還沒掃完時，會直接 return (放棄)，導致 "沒了w"。
  * - 修正: 重寫 OnSetupItemHoveringUI！
  * - 修正: 1. 現在它會先顯示「來源: 正在掃描...」。
@@ -50,7 +47,7 @@ namespace DisplayItemSourceMod
             }
         }
 
-        // [v1.1.0] 我們需要一個實例來啟動 Coroutine
+        // [v1.1.0] 一個實例來啟動 Coroutine
         private static ModBehaviour? instance;
 
         // [v1.1.0] 儲存目前正在跑的「查詢」
@@ -122,7 +119,6 @@ namespace DisplayItemSourceMod
             Text.fontStyle = FontStyles.Normal; // [v1.1.0] 確保樣式重置
 
             // --- 2. [v1.1.0] 啟動「等待 Coroutine」 ---
-            // (我們把 item 和 Text 組件 傳進去)
             activeLookup = StartCoroutine(WaitForAPI_Coroutine(item, Text));
         }
 
@@ -200,4 +196,5 @@ namespace DisplayItemSourceMod
             UnityEngine.Debug.Log($"[DisplayItemSourceMod] {message}");
         }
     }
+
 }
